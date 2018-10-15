@@ -28,14 +28,14 @@
 param(
 
  [string]
- $templateFilePath = "template.json"
+ $templateFilePath = "template.json",
 
  [string]
  $parametersFilePath = "parameters.json"
 )
  
-$resourceGroupLocation = $env:ResourceGroupLocation, 
-$subscriptionId = $env:SubscriptionID, 
+$resourceGroupLocation = $env:ResourceGroupLocation 
+$subscriptionId = $env:SubscriptionID 
 $resourceGroupName = $env:ResourceGroupName 
 $deploymentName = "Raghav";
 
