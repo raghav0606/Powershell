@@ -87,7 +87,7 @@
             "type": "String"
         },
         "storageAccounts_auseastdiag_name": {
-            "defaultValue": null,
+            "defaultValue": "ausdiagraghav",
             "type": "String"
         },
         "networkInterfaces_webserver7_name": {
@@ -103,7 +103,7 @@
             "type": "String"
         },
         "storageAccounts_canadaakshay_name": {
-            "defaultValue": null,
+            "defaultValue": "candiagraghav",
             "type": "String"
         },
         "networkInterfaces_tc_agent115_name": {
@@ -131,7 +131,7 @@
             "type": "String"
         },
         "storageAccounts_akshaydiagnostics_name": {
-            "defaultValue": null,
+            "defaultValue": "japdiagraghav",
             "type": "String"
         },
         "networkSecurityGroups_Aus_East_nsg_name": {
