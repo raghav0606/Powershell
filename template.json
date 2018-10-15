@@ -87,7 +87,7 @@
             "type": "String"
         },
         "storageAccounts_auseastdiag_name": {
-            "defaultValue": "ausdiagraghav",
+            "defaultValue": $env.Storage1,
             "type": "String"
         },
         "networkInterfaces_webserver7_name": {
