@@ -61,7 +61,7 @@ $ErrorActionPreference = "Stop"
 # sign in
 Write-Host "Logging in...";
 $username = $env:User
-$SecurePassword = Password2017 | ConvertTo-SecureString -AsPlainText -Force
+$SecurePassword = "Oct@4321" | ConvertTo-SecureString -AsPlainText -Force
 $cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $username, $SecurePassword
 
 Login-AzureRmAccount -Credential $cred
