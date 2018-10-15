@@ -41,11 +41,8 @@ param(
  [string]
  $resourceGroupName = $env:ResourceGroupName,
  
- [string]
- $deploymentName = "Raghav";
-
  )
-
+ $deploymentName = "Raghav";
 <#
 .SYNOPSIS
     Registers RPs
