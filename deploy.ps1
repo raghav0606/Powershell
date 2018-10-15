@@ -30,7 +30,7 @@ param(
  $resourceGroupLocation,
 
  [string]
- $templateFilePath = "C:\Users\Administrator.DPCD-BXWWLV1\template.json",
+ $templateFilePath = "template.json",
 
  [string]
  $parametersFilePath = "parameters.json"
