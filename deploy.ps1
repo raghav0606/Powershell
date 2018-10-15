@@ -33,16 +33,16 @@ param(
  $templateFilePath = "template.json",
 
  [string]
- $parametersFilePath = "parameters.json"
+ $parametersFilePath = "parameters.json",
 
  [string]
- $subscriptionId = $env:SubscriptionID
+ $subscriptionId = $env:SubscriptionID,
 
  [string]
- $resourceGroupName = $env:ResourceGroupName
+ $resourceGroupName = $env:ResourceGroupName,
  
  [string]
- $deploymentName = $env:DeploymentName
+ $deploymentName = $env:DeploymentName,
 
  )
 
