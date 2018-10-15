@@ -26,23 +26,20 @@
 
 
 param(
- [string]
- $resourceGroupLocation = $env:ResourceGroupLocation,
 
  [string]
  $templateFilePath = "template.json",
 
  [string]
  $parametersFilePath = "parameters.json",
-
- [string]
- $subscriptionId = $env:SubscriptionID,
-
- [string]
- $resourceGroupName = $env:ResourceGroupName,
  
  )
- $deploymentName = "Raghav";
+ 
+$resourceGroupLocation = $env:ResourceGroupLocation, 
+$subscriptionId = $env:SubscriptionID, 
+$resourceGroupName = $env:ResourceGroupName 
+$deploymentName = "Raghav";
+
 <#
 .SYNOPSIS
     Registers RPs
