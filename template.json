@@ -1,0 +1,2121 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "networkSecurityGroups_Japan_East_nsg_destinationPortRange": {
+            "defaultValue": "80-443, 3389",
+            "type": "SecureString"
+        },
+        "networkSecurityGroups_Aus_East_nsg_destinationPortRange": {
+            "defaultValue": "80-443, 3389",
+            "type": "SecureString"
+        },
+        "networkSecurityGroups_Canada_East_nsg_destinationPortRange": {
+            "defaultValue": "80-443, 3389",
+            "type": "SecureString"
+        },
+        "securityRules_RDPandHTTP_destinationPortRange": {
+            "defaultValue": "80-443, 3389",
+            "type": "SecureString"
+        },
+        "securityRules_RDPandHTTP_destinationPortRange_1": {
+            "defaultValue": "80-443, 3389",
+            "type": "SecureString"
+        },
+        "securityRules_RDPandHTTP_destinationPortRange_2": {
+            "defaultValue": "80-443, 3389",
+            "type": "SecureString"
+        },
+        "virtualMachines_DC_name": {
+            "defaultValue": "DC",
+            "type": "String"
+        },
+        "virtualMachines_TC_name": {
+            "defaultValue": "TC",
+            "type": "String"
+        },
+        "virtualMachines_SQL_name": {
+            "defaultValue": "SQL",
+            "type": "String"
+        },
+        "virtualMachines_Client_name": {
+            "defaultValue": "Client",
+            "type": "String"
+        },
+        "virtualMachines_Octopus_name": {
+            "defaultValue": "Octopus",
+            "type": "String"
+        },
+        "networkInterfaces_dc106_name": {
+            "defaultValue": "dc106",
+            "type": "String"
+        },
+        "networkInterfaces_tc806_name": {
+            "defaultValue": "tc806",
+            "type": "String"
+        },
+        "publicIPAddresses_DC_ip_name": {
+            "defaultValue": "DC-ip",
+            "type": "String"
+        },
+        "publicIPAddresses_TC_ip_name": {
+            "defaultValue": "TC-ip",
+            "type": "String"
+        },
+        "virtualMachines_TC_Agent_name": {
+            "defaultValue": "TC-Agent",
+            "type": "String"
+        },
+        "networkInterfaces_sql374_name": {
+            "defaultValue": "sql374",
+            "type": "String"
+        },
+        "publicIPAddresses_SQL_ip_name": {
+            "defaultValue": "SQL-ip",
+            "type": "String"
+        },
+        "virtualMachines_webserver_name": {
+            "defaultValue": "webserver",
+            "type": "String"
+        },
+        "networkInterfaces_client396_name": {
+            "defaultValue": "client396",
+            "type": "String"
+        },
+        "publicIPAddresses_Client_ip_name": {
+            "defaultValue": "Client-ip",
+            "type": "String"
+        },
+        "storageAccounts_auseastdiag_name": {
+            "defaultValue": null,
+            "type": "String"
+        },
+        "networkInterfaces_webserver7_name": {
+            "defaultValue": "webserver7",
+            "type": "String"
+        },
+        "networkInterfaces_octopus107_name": {
+            "defaultValue": "octopus107",
+            "type": "String"
+        },
+        "publicIPAddresses_Octopus_ip_name": {
+            "defaultValue": "Octopus-ip",
+            "type": "String"
+        },
+        "storageAccounts_canadaakshay_name": {
+            "defaultValue": null,
+            "type": "String"
+        },
+        "networkInterfaces_tc_agent115_name": {
+            "defaultValue": "tc-agent115",
+            "type": "String"
+        },
+        "publicIPAddresses_TC_Agent_ip_name": {
+            "defaultValue": "TC-Agent-ip",
+            "type": "String"
+        },
+        "virtualNetworks_Aus_East_Vnet_name": {
+            "defaultValue": "Aus-East-Vnet",
+            "type": "String"
+        },
+        "publicIPAddresses_webserver_ip_name": {
+            "defaultValue": "webserver-ip",
+            "type": "String"
+        },
+        "virtualNetworks_Vnet_Japan_East_name": {
+            "defaultValue": "Vnet-Japan-East",
+            "type": "String"
+        },
+        "virtualNetworks_Vnet_Canada_East_name": {
+            "defaultValue": "Vnet-Canada-East",
+            "type": "String"
+        },
+        "storageAccounts_akshaydiagnostics_name": {
+            "defaultValue": null,
+            "type": "String"
+        },
+        "networkSecurityGroups_Aus_East_nsg_name": {
+            "defaultValue": "Aus-East-nsg",
+            "type": "String"
+        },
+        "networkSecurityGroups_Japan_East_nsg_name": {
+            "defaultValue": "Japan-East-nsg",
+            "type": "String"
+        },
+        "networkSecurityGroups_Canada_East_nsg_name": {
+            "defaultValue": "Canada-East-nsg",
+            "type": "String"
+        },
+        "subnets_default_name": {
+            "defaultValue": "default",
+            "type": "String"
+        },
+        "subnets_default_name_1": {
+            "defaultValue": "default",
+            "type": "String"
+        },
+        "subnets_default_name_2": {
+            "defaultValue": "default",
+            "type": "String"
+        },
+        "securityRules_RDPandHTTP_name": {
+            "defaultValue": "RDPandHTTP",
+            "type": "String"
+        },
+        "securityRules_RDPandHTTP_name_1": {
+            "defaultValue": "RDPandHTTP",
+            "type": "String"
+        },
+        "securityRules_RDPandHTTP_name_2": {
+            "defaultValue": "RDPandHTTP",
+            "type": "String"
+        },
+        "securityRules_Octopus_Tentacle_name": {
+            "defaultValue": "Octopus-Tentacle",
+            "type": "String"
+        },
+        "virtualNetworkPeerings_japan_to_canada_name": {
+            "defaultValue": "japan-to-canada",
+            "type": "String"
+        },
+        "virtualNetworkPeerings_canada_to_japan_name": {
+            "defaultValue": "canada-to-japan",
+            "type": "String"
+        },
+        "virtualMachines_DC_id": {
+            "defaultValue": "/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/AKSHAY/providers/Microsoft.Compute/disks/DC_OsDisk_1_f25f10fc047640ec98451e5bcabd9200",
+            "type": "String"
+        },
+        "virtualMachines_SQL_id": {
+            "defaultValue": "/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/AKSHAY/providers/Microsoft.Compute/disks/SQL_OsDisk_1_120558086af54bd4baeff27380b3e4eb",
+            "type": "String"
+        },
+        "virtualMachines_TC_id": {
+            "defaultValue": "/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/AKSHAY/providers/Microsoft.Compute/disks/TC_OsDisk_1_bff00af3dd444ffe9d06795aaf2b3164",
+            "type": "String"
+        },
+        "virtualMachines_TC_Agent_id": {
+            "defaultValue": "/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/AKSHAY/providers/Microsoft.Compute/disks/TC-Agent_OsDisk_1_e745db4c030a43fb926863dc540c26e3",
+            "type": "String"
+        },
+        "virtualMachines_webserver_id": {
+            "defaultValue": "/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Compute/disks/webserver_OsDisk_1_15da42c877a14adcb519235eda40c9dc",
+            "type": "String"
+        },
+        "virtualMachines_Client_id": {
+            "defaultValue": "/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/AKSHAY/providers/Microsoft.Compute/disks/Client_OsDisk_1_2137918e0e9f46e08ce75f44c669c83f",
+            "type": "String"
+        },
+        "virtualMachines_Octopus_id": {
+            "defaultValue": "/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Compute/disks/Octopus_OsDisk_1_252f472a3e3842feb5a79679b739fa4d",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Compute/virtualMachines/DC'.",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[parameters('virtualMachines_DC_name')]",
+            "apiVersion": "2017-12-01",
+            "location": "japaneast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_DS1_v2"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "MicrosoftWindowsServer",
+                        "offer": "WindowsServer",
+                        "sku": "2012-R2-Datacenter",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Windows",
+                        "name": "[concat(parameters('virtualMachines_DC_name'),'_OsDisk_1_f25f10fc047640ec98451e5bcabd9200')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "storageAccountType": "Standard_LRS",
+                           
+                        },
+                        "diskSizeGB": 127
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_DC_name')]",
+                    "adminUsername": "Akshay",
+					"adminPassword": "Password2017",
+                    "windowsConfiguration": {
+                        "provisionVMAgent": true,
+                        "enableAutomaticUpdates": true
+                    },
+                    "secrets": null
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_dc106_name'))]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[concat('https', '://', parameters('storageAccounts_akshaydiagnostics_name'), '.blob.core.windows.net', '/')]"
+                    }
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_dc106_name'))]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_akshaydiagnostics_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Compute/virtualMachines/SQL'.",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[parameters('virtualMachines_SQL_name')]",
+            "apiVersion": "2017-12-01",
+            "location": "japaneast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_DS1_v2"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "MicrosoftWindowsServer",
+                        "offer": "WindowsServer",
+                        "sku": "2012-R2-Datacenter",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Windows",
+                        "name": "[concat(parameters('virtualMachines_SQL_name'),'_OsDisk_1_120558086af54bd4baeff27380b3e4eb')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "storageAccountType": "Standard_LRS",
+                           
+                        },
+                        "diskSizeGB": 127
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_SQL_name')]",
+                    "adminUsername": "Akshay",
+					"adminPassword": "Password2017",
+                    "windowsConfiguration": {
+                        "provisionVMAgent": true,
+                        "enableAutomaticUpdates": true
+                    },
+                    "secrets": null
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_sql374_name'))]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[concat('https', '://', parameters('storageAccounts_akshaydiagnostics_name'), '.blob.core.windows.net', '/')]"
+                    }
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_sql374_name'))]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_akshaydiagnostics_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Compute/virtualMachines/TC'.",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[parameters('virtualMachines_TC_name')]",
+            "apiVersion": "2017-12-01",
+            "location": "japaneast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_DS1_v2"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "MicrosoftWindowsServer",
+                        "offer": "WindowsServer",
+                        "sku": "2012-R2-Datacenter",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Windows",
+                        "name": "[concat(parameters('virtualMachines_TC_name'),'_OsDisk_1_bff00af3dd444ffe9d06795aaf2b3164')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "storageAccountType": "Standard_LRS",
+                           
+                        },
+                        "diskSizeGB": 127
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_TC_name')]",
+                    "adminUsername": "Akshay",
+					"adminPassword": "Password2017",
+                    "windowsConfiguration": {
+                        "provisionVMAgent": true,
+                        "enableAutomaticUpdates": true
+                    },
+                    "secrets": null
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_tc806_name'))]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[concat('https', '://', parameters('storageAccounts_akshaydiagnostics_name'), '.blob.core.windows.net', '/')]"
+                    }
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_tc806_name'))]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_akshaydiagnostics_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Compute/virtualMachines/TC-Agent'.",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[parameters('virtualMachines_TC_Agent_name')]",
+            "apiVersion": "2017-12-01",
+            "location": "japaneast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_DS1_v2"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "MicrosoftWindowsServer",
+                        "offer": "WindowsServer",
+                        "sku": "2012-R2-Datacenter",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Windows",
+                        "name": "[concat(parameters('virtualMachines_TC_Agent_name'),'_OsDisk_1_e745db4c030a43fb926863dc540c26e3')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "storageAccountType": "Standard_LRS",
+                            
+                        },
+                        "diskSizeGB": 127
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_TC_Agent_name')]",
+                    "adminUsername": "Akshay",
+					"adminPassword": "Password2017",
+                    "windowsConfiguration": {
+                        "provisionVMAgent": true,
+                        "enableAutomaticUpdates": true
+                    },
+                    "secrets": null
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_tc_agent115_name'))]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[concat('https', '://', parameters('storageAccounts_akshaydiagnostics_name'), '.blob.core.windows.net', '/')]"
+                    }
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_tc_agent115_name'))]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_akshaydiagnostics_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Compute/virtualMachines/webserver'.",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[parameters('virtualMachines_webserver_name')]",
+            "apiVersion": "2017-12-01",
+            "location": "australiaeast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_DS1_v2"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "MicrosoftWindowsServer",
+                        "offer": "WindowsServer",
+                        "sku": "2012-R2-Datacenter",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Windows",
+                        "name": "[concat(parameters('virtualMachines_webserver_name'),'_OsDisk_1_15da42c877a14adcb519235eda40c9dc')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "storageAccountType": "Standard_LRS",
+                            
+                        },
+                        "diskSizeGB": 127
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_webserver_name')]",
+                    "adminUsername": "Akshay",
+					"adminPassword": "Password2017",
+                    "windowsConfiguration": {
+                        "provisionVMAgent": true,
+                        "enableAutomaticUpdates": true
+                    },
+                    "secrets": null
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_webserver7_name'))]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[concat('https', '://', parameters('storageAccounts_auseastdiag_name'), '.blob.core.windows.net', '/')]"
+                    }
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_webserver7_name'))]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_auseastdiag_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Compute/virtualMachines/Client'.",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[parameters('virtualMachines_Client_name')]",
+            "apiVersion": "2017-12-01",
+            "location": "australiaeast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_B2ms"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "MicrosoftWindowsServer",
+                        "offer": "WindowsServer",
+                        "sku": "2012-R2-Datacenter",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Windows",
+                        "name": "[concat(parameters('virtualMachines_Client_name'),'_OsDisk_1_2137918e0e9f46e08ce75f44c669c83f')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "storageAccountType": "Standard_LRS",
+                            
+                        },
+                        "diskSizeGB": 127
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_Client_name')]",
+                    "adminUsername": "Akshay",
+					"adminPassword": "Password2017",
+                    "windowsConfiguration": {
+                        "provisionVMAgent": true,
+                        "enableAutomaticUpdates": false
+                    },
+                    "secrets": null
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_client396_name'))]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[concat('https', '://', parameters('storageAccounts_auseastdiag_name'), '.blob.core.windows.net', '/')]"
+                    }
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_client396_name'))]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_auseastdiag_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Compute/virtualMachines/Octopus'.",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[parameters('virtualMachines_Octopus_name')]",
+            "apiVersion": "2017-12-01",
+            "location": "australiaeast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_DS1_v2"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "MicrosoftWindowsServer",
+                        "offer": "WindowsServer",
+                        "sku": "2012-R2-Datacenter",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Windows",
+                        "name": "[concat(parameters('virtualMachines_Octopus_name'),'_OsDisk_1_252f472a3e3842feb5a79679b739fa4d')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "storageAccountType": "Standard_LRS",
+                           
+                        },
+                        "diskSizeGB": 127
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_Octopus_name')]",
+                    "adminUsername": "Akshay",
+					"adminPassword": "Password2017",
+                    "windowsConfiguration": {
+                        "provisionVMAgent": true,
+                        "enableAutomaticUpdates": true
+                    },
+                    "secrets": null
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_octopus107_name'))]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[concat('https', '://', parameters('storageAccounts_auseastdiag_name'), '.blob.core.windows.net', '/')]"
+                    }
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_octopus107_name'))]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_auseastdiag_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/networkInterfaces/dc106'.",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('networkInterfaces_dc106_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "japaneast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "a9b632ae-4090-4fa9-86da-ce6c15f7f809",
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "etag": "W/\"31cd98c6-c318-4381-9865-d1c5820707cb\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.1.0.7",
+                            "privateIPAllocationMethod": "Static",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_DC_ip_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Vnet_Japan_East_name'), parameters('subnets_default_name_1'))]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": [],
+                    "appliedDnsServers": [],
+                    "internalDomainNameSuffix": "oj5sfpri31cexnbctcfg5fasub.lx.internal.cloudapp.net"
+                },
+                "macAddress": "00-0D-3A-51-C0-89",
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "networkSecurityGroup": {
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Japan_East_nsg_name'))]"
+                },
+                "primary": true
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_DC_ip_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Vnet_Japan_East_name'), parameters('subnets_default_name_1'))]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Japan_East_nsg_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/networkInterfaces/sql374'.",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('networkInterfaces_sql374_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "japaneast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "1ad6be4c-be8c-47f9-9316-3ab59973a275",
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "etag": "W/\"03bc6272-bed7-49df-8c6f-f0c8fcd58e40\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.1.0.6",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_SQL_ip_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Vnet_Japan_East_name'), parameters('subnets_default_name_1'))]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": [],
+                    "appliedDnsServers": [],
+                    "internalDomainNameSuffix": "oj5sfpri31cexnbctcfg5fasub.lx.internal.cloudapp.net"
+                },
+                "macAddress": "00-0D-3A-51-4E-38",
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "networkSecurityGroup": {
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Japan_East_nsg_name'))]"
+                },
+                "primary": true
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_SQL_ip_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Vnet_Japan_East_name'), parameters('subnets_default_name_1'))]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Japan_East_nsg_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/networkInterfaces/tc-agent115'.",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('networkInterfaces_tc_agent115_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "japaneast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "b535ac4b-ae61-48c1-a1d7-eb8057945771",
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "etag": "W/\"da724c06-3683-448c-9a76-d2e63e5b1a72\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.1.0.4",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_TC_Agent_ip_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Vnet_Japan_East_name'), parameters('subnets_default_name_1'))]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": [],
+                    "appliedDnsServers": [],
+                    "internalDomainNameSuffix": "oj5sfpri31cexnbctcfg5fasub.lx.internal.cloudapp.net"
+                },
+                "macAddress": "00-0D-3A-51-4A-39",
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "networkSecurityGroup": {
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Japan_East_nsg_name'))]"
+                },
+                "primary": true
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_TC_Agent_ip_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Vnet_Japan_East_name'), parameters('subnets_default_name_1'))]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Japan_East_nsg_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/networkInterfaces/tc806'.",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('networkInterfaces_tc806_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "japaneast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "9dbf7944-63c6-47e0-b79d-334c8e2197af",
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "etag": "W/\"86126702-d6f0-4c0c-b74e-361e6fd67a01\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.1.0.5",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_TC_ip_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Vnet_Japan_East_name'), parameters('subnets_default_name_1'))]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": [],
+                    "appliedDnsServers": [],
+                    "internalDomainNameSuffix": "oj5sfpri31cexnbctcfg5fasub.lx.internal.cloudapp.net"
+                },
+                "macAddress": "00-0D-3A-50-93-BC",
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "networkSecurityGroup": {
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Japan_East_nsg_name'))]"
+                },
+                "primary": true
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_TC_ip_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Vnet_Japan_East_name'), parameters('subnets_default_name_1'))]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Japan_East_nsg_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/networkInterfaces/webserver7'.",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('networkInterfaces_webserver7_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "australiaeast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "fb1733da-dcc2-4192-8838-91150e50eb88",
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "etag": "W/\"fb7dad2c-d259-46de-ba10-d612ed9002c4\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.3.0.4",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_webserver_ip_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Aus_East_Vnet_name'), parameters('subnets_default_name'))]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": [],
+                    "appliedDnsServers": [],
+                    "internalDomainNameSuffix": "od1hhkpkbxuuzniv5upuik4xch.px.internal.cloudapp.net"
+                },
+                "macAddress": "00-0D-3A-D0-04-3A",
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "networkSecurityGroup": {
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Aus_East_nsg_name'))]"
+                },
+                "primary": true
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_webserver_ip_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Aus_East_Vnet_name'), parameters('subnets_default_name'))]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Aus_East_nsg_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/networkInterfaces/client396'.",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('networkInterfaces_client396_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "australiaeast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "fab4261c-2b9c-4e77-84f7-3398e7de1772",
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "etag": "W/\"d8e14be6-b299-44d9-aa3c-edabeff6f4f2\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.3.0.9",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_Client_ip_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Aus_East_Vnet_name'), parameters('subnets_default_name'))]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": [],
+                    "appliedDnsServers": [],
+                    "internalDomainNameSuffix": "h4letyvm1a2ezepgncuz0g30kd.vx.internal.cloudapp.net"
+                },
+                "macAddress": "00-0D-3A-F4-8B-4F",
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "networkSecurityGroup": {
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Aus_East_nsg_name'))]"
+                },
+                "primary": true
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_Client_ip_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Aus_East_Vnet_name'), parameters('subnets_default_name_2'))]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Aus_East_nsg_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/networkInterfaces/octopus107'.",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('networkInterfaces_octopus107_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "australiaeast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "f20c9380-866c-4288-9fc5-117bde0e076d",
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "etag": "W/\"a7da3db0-fe1b-4db1-be70-df4f2465a678\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.3.0.10",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_Octopus_ip_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Aus_East_Vnet_name'), parameters('subnets_default_name'))]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": [],
+                    "appliedDnsServers": [],
+                    "internalDomainNameSuffix": "h4letyvm1a2ezepgncuz0g30kd.vx.internal.cloudapp.net"
+                },
+                "macAddress": "00-0D-3A-F4-14-D4",
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "networkSecurityGroup": {
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Aus_East_nsg_name'))]"
+                },
+                "primary": true
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_Octopus_ip_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Aus_East_Vnet_name'), parameters('subnets_default_name_2'))]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Aus_East_nsg_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/networkSecurityGroups/Japan-East-nsg'.",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('networkSecurityGroups_Japan_East_nsg_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "japaneast",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "91028a82-f621-4846-84ad-f7722d4fb6fc",
+                "securityRules": [
+                    {
+                        "name": "RDPandHTTP",
+                        "etag": "W/\"6e737e14-0b26-4853-a8f7-de2d42cf0245\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "sourceAddressPrefix": "Internet",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 1000,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [
+                                "80-443",
+                                "3389"
+                            ],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": [],
+                            "destinationPortRange": null
+                        }
+                    }
+                ],
+                "defaultSecurityRules": [
+                    {
+                        "name": "AllowVnetInBound",
+                        "etag": "W/\"6e737e14-0b26-4853-a8f7-de2d42cf0245\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow inbound traffic from all VMs in VNET",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Allow",
+                            "priority": 65000,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowAzureLoadBalancerInBound",
+                        "etag": "W/\"6e737e14-0b26-4853-a8f7-de2d42cf0245\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow inbound traffic from azure load balancer",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "AzureLoadBalancer",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 65001,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "DenyAllInBound",
+                        "etag": "W/\"6e737e14-0b26-4853-a8f7-de2d42cf0245\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Deny all inbound traffic",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 65500,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowVnetOutBound",
+                        "etag": "W/\"6e737e14-0b26-4853-a8f7-de2d42cf0245\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow outbound traffic from all VMs to all VMs in VNET",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Allow",
+                            "priority": 65000,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowInternetOutBound",
+                        "etag": "W/\"6e737e14-0b26-4853-a8f7-de2d42cf0245\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow outbound traffic from all VMs to Internet",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "Internet",
+                            "access": "Allow",
+                            "priority": 65001,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "DenyAllOutBound",
+                        "etag": "W/\"6e737e14-0b26-4853-a8f7-de2d42cf0245\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Deny all outbound traffic",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 65500,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                ]
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/networkSecurityGroups/Aus-East-nsg'.",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('networkSecurityGroups_Aus_East_nsg_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "australiaeast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "bd731fe5-c00b-4494-9f65-e9a6b6345642",
+                "securityRules": [
+                    {
+                        "name": "RDPandHTTP",
+                        "etag": "W/\"83c38263-7121-429b-841e-9d2a96f67445\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 100,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [
+                                "80-443",
+                                "3389"
+                            ],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": [],
+                            "destinationPortRange": null
+                        }
+                    },
+                    {
+                        "name": "Octopus-Tentacle",
+                        "etag": "W/\"83c38263-7121-429b-841e-9d2a96f67445\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "10933",
+                            "sourceAddressPrefix": "40.86.217.242/32",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 1000,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                ],
+                "defaultSecurityRules": [
+                    {
+                        "name": "AllowVnetInBound",
+                        "etag": "W/\"83c38263-7121-429b-841e-9d2a96f67445\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow inbound traffic from all VMs in VNET",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Allow",
+                            "priority": 65000,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowAzureLoadBalancerInBound",
+                        "etag": "W/\"83c38263-7121-429b-841e-9d2a96f67445\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow inbound traffic from azure load balancer",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "AzureLoadBalancer",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 65001,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "DenyAllInBound",
+                        "etag": "W/\"83c38263-7121-429b-841e-9d2a96f67445\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Deny all inbound traffic",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 65500,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowVnetOutBound",
+                        "etag": "W/\"83c38263-7121-429b-841e-9d2a96f67445\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow outbound traffic from all VMs to all VMs in VNET",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Allow",
+                            "priority": 65000,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowInternetOutBound",
+                        "etag": "W/\"83c38263-7121-429b-841e-9d2a96f67445\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow outbound traffic from all VMs to Internet",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "Internet",
+                            "access": "Allow",
+                            "priority": 65001,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "DenyAllOutBound",
+                        "etag": "W/\"83c38263-7121-429b-841e-9d2a96f67445\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Deny all outbound traffic",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 65500,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                ]
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/networkSecurityGroups/Canada-East-nsg'.",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('networkSecurityGroups_Canada_East_nsg_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "canadaeast",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "5c057bfe-3d09-4fcf-80ae-20bfebb64adf",
+                "securityRules": [
+                    {
+                        "name": "RDPandHTTP",
+                        "etag": "W/\"decf107a-5e5e-4e14-b091-eb0e81c1930a\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 1000,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [
+                                "3389",
+                                "80-443"
+                            ],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": [],
+                            "destinationPortRange": null
+                        }
+                    }
+                ],
+                "defaultSecurityRules": [
+                    {
+                        "name": "AllowVnetInBound",
+                        "etag": "W/\"decf107a-5e5e-4e14-b091-eb0e81c1930a\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow inbound traffic from all VMs in VNET",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Allow",
+                            "priority": 65000,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowAzureLoadBalancerInBound",
+                        "etag": "W/\"decf107a-5e5e-4e14-b091-eb0e81c1930a\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow inbound traffic from azure load balancer",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "AzureLoadBalancer",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 65001,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "DenyAllInBound",
+                        "etag": "W/\"decf107a-5e5e-4e14-b091-eb0e81c1930a\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Deny all inbound traffic",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 65500,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowVnetOutBound",
+                        "etag": "W/\"decf107a-5e5e-4e14-b091-eb0e81c1930a\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow outbound traffic from all VMs to all VMs in VNET",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Allow",
+                            "priority": 65000,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowInternetOutBound",
+                        "etag": "W/\"decf107a-5e5e-4e14-b091-eb0e81c1930a\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow outbound traffic from all VMs to Internet",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "Internet",
+                            "access": "Allow",
+                            "priority": 65001,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "DenyAllOutBound",
+                        "etag": "W/\"decf107a-5e5e-4e14-b091-eb0e81c1930a\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Deny all outbound traffic",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 65500,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                ]
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/publicIPAddresses/DC-ip'.",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "sku": {
+                "name": "Basic",
+                "tier": "Regional"
+            },
+            "name": "[parameters('publicIPAddresses_DC_ip_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "japaneast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "2a8e7fa8-cf8e-4bc8-9d4c-38970225119a",
+                "ipAddress": "13.78.45.235",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "dnsSettings": {
+                    "domainNameLabel": "dc-akshay",
+                    "fqdn": "dc-akshay.japaneast.cloudapp.azure.com"
+                },
+                "ipTags": []
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/publicIPAddresses/SQL-ip'.",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "sku": {
+                "name": "Basic",
+                "tier": "Regional"
+            },
+            "name": "[parameters('publicIPAddresses_SQL_ip_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "japaneast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "b8a30c0e-3096-44db-8591-7713ff49c842",
+                "ipAddress": "13.78.13.62",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "dnsSettings": {
+                    "domainNameLabel": "sql-akshay",
+                    "fqdn": "sql-akshay.japaneast.cloudapp.azure.com"
+                },
+                "ipTags": []
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/publicIPAddresses/TC-Agent-ip'.",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "sku": {
+                "name": "Basic",
+                "tier": "Regional"
+            },
+            "name": "[parameters('publicIPAddresses_TC_Agent_ip_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "japaneast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "e16f3e3e-6f1d-4ac1-a1f1-0a6e58f815e4",
+                "ipAddress": "13.78.22.34",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "dnsSettings": {
+                    "domainNameLabel": "tc-agent-akshay",
+                    "fqdn": "tc-agent-akshay.japaneast.cloudapp.azure.com"
+                },
+                "ipTags": []
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/publicIPAddresses/TC-ip'.",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "sku": {
+                "name": "Basic",
+                "tier": "Regional"
+            },
+            "name": "[parameters('publicIPAddresses_TC_ip_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "japaneast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "f2d000c2-b837-4b4c-87a6-a45f60170edd",
+                "ipAddress": "13.78.23.142",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "dnsSettings": {
+                    "domainNameLabel": "tc-akshay",
+                    "fqdn": "tc-akshay.japaneast.cloudapp.azure.com"
+                },
+                "ipTags": []
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/publicIPAddresses/webserver-ip'.",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "sku": {
+                "name": "Basic",
+                "tier": "Regional"
+            },
+            "name": "[parameters('publicIPAddresses_webserver_ip_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "australiaeast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "243ec7ec-68d5-469b-8605-e39b68dd4bbb",
+                "ipAddress": "52.187.250.67",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "dnsSettings": {
+                    "domainNameLabel": "web-akshay",
+                    "fqdn": "web-akshay.australiaeast.cloudapp.azure.com"
+                },
+                "ipTags": []
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/publicIPAddresses/Client-ip'.",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "sku": {
+                "name": "Basic",
+                "tier": "Regional"
+            },
+            "name": "[parameters('publicIPAddresses_Client_ip_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "australiaeast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "a20e30fd-0ae4-426c-94bd-9d1ca0f1cc46",
+                "ipAddress": "40.86.216.123",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "dnsSettings": {
+                    "domainNameLabel": "client-akshay",
+                    "fqdn": "client-akshay.australiaeast.cloudapp.azure.com"
+                },
+                "ipTags": []
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/publicIPAddresses/Octopus-ip'.",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "sku": {
+                "name": "Basic",
+                "tier": "Regional"
+            },
+            "name": "[parameters('publicIPAddresses_Octopus_ip_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "australiaeast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "6fbae6d6-b2e3-478a-b9eb-98f6c1304d7b",
+                "ipAddress": "40.86.217.242",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "dnsSettings": {
+                    "domainNameLabel": "octopus-akshay",
+                    "fqdn": "octopus-akshay.australiaeast.cloudapp.azure.com"
+                },
+                "ipTags": []
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/virtualNetworks/Vnet-Japan-East'.",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('virtualNetworks_Vnet_Japan_East_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "japaneast",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "be227f72-ee28-4bc4-b422-988a6f9412a1",
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "10.1.0.0/16"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "default",
+                        "etag": "W/\"6807c763-00f3-4214-be80-d1cf8b4eb7b3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.1.0.0/24"
+                        }
+                    }
+                ],
+                "virtualNetworkPeerings": [
+                    {
+                        "name": "japan-to-canada",
+                        "etag": "W/\"6807c763-00f3-4214-be80-d1cf8b4eb7b3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_Vnet_Canada_East_name'))]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.2.0.0/16"
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "enableDdosProtection": false,
+                "enableVmProtection": false
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_Vnet_Canada_East_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/virtualNetworks/Aus-East-Vnet'.",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('virtualNetworks_Aus_East_Vnet_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "australiaeast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "a973f670-0dea-4ce9-b515-fd1f442bd717",
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "10.3.0.0/16"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "default",
+                        "etag": "W/\"ce7a9984-a8b8-4913-94dd-17fbbbbabaef\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.3.0.0/24"
+                        }
+                    }
+                ],
+                "virtualNetworkPeerings": [],
+                "enableDdosProtection": false,
+                "enableVmProtection": false
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/virtualNetworks/Vnet-Canada-East'.",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('virtualNetworks_Vnet_Canada_East_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "canadaeast",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "e249963f-d8ac-4c38-91e6-68a99d1bba53",
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "10.2.0.0/16"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "default",
+                        "etag": "W/\"32fd442b-71fc-4436-b540-6cef1cb58416\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.2.0.0/24"
+                        }
+                    }
+                ],
+                "virtualNetworkPeerings": [
+                    {
+                        "name": "canada-to-japan",
+                        "etag": "W/\"32fd442b-71fc-4436-b540-6cef1cb58416\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "peeringState": "Connected",
+                            "remoteVirtualNetwork": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_Vnet_Japan_East_name'))]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": true,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.1.0.0/16"
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "enableDdosProtection": false,
+                "enableVmProtection": false
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Storage/storageAccounts/akshaydiagnostics'.",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "name": "[parameters('storageAccounts_akshaydiagnostics_name')]",
+            "apiVersion": "2018-07-01",
+            "location": "japaneast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "networkAcls": {
+                    "bypass": "AzureServices",
+                    "virtualNetworkRules": [],
+                    "ipRules": [],
+                    "defaultAction": "Allow"
+                },
+                "supportsHttpsTrafficOnly": false,
+                "encryption": {
+                    "services": {
+                        "file": {
+                            "enabled": true
+                        },
+                        "blob": {
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Storage/storageAccounts/auseastdiag'.",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "name": "[parameters('storageAccounts_auseastdiag_name')]",
+            "apiVersion": "2018-07-01",
+            "location": "australiaeast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "networkAcls": {
+                    "bypass": "AzureServices",
+                    "virtualNetworkRules": [],
+                    "ipRules": [],
+                    "defaultAction": "Allow"
+                },
+                "supportsHttpsTrafficOnly": false,
+                "encryption": {
+                    "services": {
+                        "file": {
+                            "enabled": true
+                        },
+                        "blob": {
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Storage/storageAccounts/canadaakshay'.",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "name": "[parameters('storageAccounts_canadaakshay_name')]",
+            "apiVersion": "2018-07-01",
+            "location": "canadaeast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "networkAcls": {
+                    "bypass": "AzureServices",
+                    "virtualNetworkRules": [],
+                    "ipRules": [],
+                    "defaultAction": "Allow"
+                },
+                "supportsHttpsTrafficOnly": false,
+                "encryption": {
+                    "services": {
+                        "file": {
+                            "enabled": true
+                        },
+                        "blob": {
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/networkSecurityGroups/Japan-East-nsg/securityRules/RDPandHTTP'.",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "name": "[concat(parameters('networkSecurityGroups_Japan_East_nsg_name'), '/', parameters('securityRules_RDPandHTTP_name_1'))]",
+            "apiVersion": "2018-02-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "sourceAddressPrefix": "Internet",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 1000,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [
+                    "80-443",
+                    "3389"
+                ],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": [],
+                "destinationPortRange": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Japan_East_nsg_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/networkSecurityGroups/Aus-East-nsg/securityRules/RDPandHTTP'.",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "name": "[concat(parameters('networkSecurityGroups_Aus_East_nsg_name'), '/', parameters('securityRules_RDPandHTTP_name'))]",
+            "apiVersion": "2018-02-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 100,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [
+                    "80-443",
+                    "3389"
+                ],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": [],
+                "destinationPortRange": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Aus_East_nsg_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/networkSecurityGroups/Aus-East-nsg/securityRules/Octopus-Tentacle'.",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "name": "[concat(parameters('networkSecurityGroups_Aus_East_nsg_name'), '/', parameters('securityRules_Octopus_Tentacle_name'))]",
+            "apiVersion": "2018-02-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "10933",
+                "sourceAddressPrefix": "40.86.217.242/32",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 1000,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Aus_East_nsg_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/networkSecurityGroups/Canada-East-nsg/securityRules/RDPandHTTP'.",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "name": "[concat(parameters('networkSecurityGroups_Canada_East_nsg_name'), '/', parameters('securityRules_RDPandHTTP_name_2'))]",
+            "apiVersion": "2018-02-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 1000,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [
+                    "3389",
+                    "80-443"
+                ],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": [],
+                "destinationPortRange": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Canada_East_nsg_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/virtualNetworks/Vnet-Japan-East/subnets/default'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_Vnet_Japan_East_name'), '/', parameters('subnets_default_name_1'))]",
+            "apiVersion": "2018-02-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.1.0.0/24"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_Vnet_Japan_East_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/virtualNetworks/Vnet-Japan-East/virtualNetworkPeerings/japan-to-canada'.",
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "name": "[concat(parameters('virtualNetworks_Vnet_Japan_East_name'), '/', parameters('virtualNetworkPeerings_japan_to_canada_name'))]",
+            "apiVersion": "2018-02-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_Vnet_Canada_East_name'))]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.2.0.0/16"
+                    ]
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_Vnet_Japan_East_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_Vnet_Canada_East_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/virtualNetworks/Aus-East-Vnet/subnets/default'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_Aus_East_Vnet_name'), '/', parameters('subnets_default_name'))]",
+            "apiVersion": "2018-02-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.3.0.0/24"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_Aus_East_Vnet_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/virtualNetworks/Vnet-Canada-East/subnets/default'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_Vnet_Canada_East_name'), '/', parameters('subnets_default_name_2'))]",
+            "apiVersion": "2018-02-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.2.0.0/24"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_Vnet_Canada_East_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/53c13eed-675b-41c7-a2e0-12d12d8d5b98/resourceGroups/Akshay/providers/Microsoft.Network/virtualNetworks/Vnet-Canada-East/virtualNetworkPeerings/canada-to-japan'.",
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "name": "[concat(parameters('virtualNetworks_Vnet_Canada_East_name'), '/', parameters('virtualNetworkPeerings_canada_to_japan_name'))]",
+            "apiVersion": "2018-02-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "peeringState": "Connected",
+                "remoteVirtualNetwork": {
+                    "id": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_Vnet_Japan_East_name'))]"
+                },
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.1.0.0/16"
+                    ]
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_Vnet_Canada_East_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_Vnet_Japan_East_name'))]"
+            ]
+        }
+    ]
+}
