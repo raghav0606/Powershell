@@ -28,12 +28,11 @@
 param(
 
  [string]
- $templateFilePath = "template.json",
+ $templateFilePath = "template.json"
 
  [string]
- $parametersFilePath = "parameters.json",
- 
- )
+ $parametersFilePath = "parameters.json"
+)
  
 $resourceGroupLocation = $env:ResourceGroupLocation, 
 $subscriptionId = $env:SubscriptionID, 
