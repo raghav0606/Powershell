@@ -63,7 +63,7 @@ $username = "bikul@espire.com"
 $SecurePassword = "Oct@4321" | ConvertTo-SecureString -AsPlainText -Force
 $cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $username, $SecurePassword
 
-Login-AzureRmAccount -Credential $cred
+Connect-AzureRmAccount -Credential $cred
 
 # select subscription
 Write-Host "Selecting subscription '$subscriptionId'";
