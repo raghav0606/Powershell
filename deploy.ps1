@@ -42,7 +42,7 @@ param(
  $resourceGroupName = $env:ResourceGroupName,
  
  [string]
- $deploymentName = "Raghav",
+ $deploymentName = "Raghav";
 
  )
 
