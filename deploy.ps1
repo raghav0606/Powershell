@@ -61,7 +61,7 @@ $ErrorActionPreference = "Stop"
 # sign in
 Write-Host "Logging in...";
 $username = $env:User
-$password = $env:Password
+$password = $env:credential
 $pass = ConvertTo-SecureString -string $password -Force
 $securepass = $pass
 $cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $username, $securepass
