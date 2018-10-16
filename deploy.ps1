@@ -37,7 +37,7 @@ param(
 $resourceGroupLocation = $env:ResourceGroupLocation 
 $subscriptionId = $env:SubscriptionID 
 $resourceGroupName = $env:ResourceGroupName 
-$deploymentName = "Raghav";
+$deploymentName = $env:DeploymentName
 
 <#
 .SYNOPSIS
@@ -61,8 +61,10 @@ $ErrorActionPreference = "Stop"
 # sign in
 Write-Host "Logging in...";
 $username = $env:User
-$SecurePassword = "Oct@4321" | ConvertTo-SecureString -AsPlainText -Force
-$cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $username, $SecurePassword
+$password = $env:Password
+$pass = ConvertTo-SecureString -AsPlainText $password -Force
+$securepass = $pass
+$cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $username, $securepass
 
 Login-AzureRmAccount -Credential $cred
 
